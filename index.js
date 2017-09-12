@@ -16,6 +16,7 @@ module.exports = {
     }}],
     'comma-dangle': ['error', 'never'],
     'arrow-parens': ['error', 'as-needed'],
-    curly: ['error', 'multi-or-nest']
+    curly: ['error', 'multi-or-nest'],
+    'require-jsdoc': 'off'
   }
 };
