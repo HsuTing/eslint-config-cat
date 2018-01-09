@@ -17,6 +17,7 @@ module.exports = {
     'comma-dangle': ['error', 'never'],
     'arrow-parens': ['error', 'as-needed'],
     curly: ['error', 'multi-or-nest'],
-    'require-jsdoc': 'off'
+    'require-jsdoc': 'off',
+    'no-invalid-this': 'off'
   }
 };
