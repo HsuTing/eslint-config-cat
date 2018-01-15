@@ -1,15 +1,10 @@
-<a name="1.0.1"></a>
-## [1.0.1](https://github.com/HsuTing/eslint-config-cat/compare/v1.0.0...v1.0.1) (2018-01-09)
+<a name="0.1.0"></a>
+# [0.1.0](https://github.com/HsuTing/eslint-config-cat/compare/d9d5ab4...v0.1.0) (2018-01-15)
 
 
 ### Features
 
-* **index.js:** set `no-invalid-this` to `off` ([4783667](https://github.com/HsuTing/eslint-config-cat/commit/4783667))
-
-
-
-<a name="1.0.0"></a>
-# 1.0.0 (2018-01-08)
+* **index.js:** set `no-invalid-this` to `off` ([d9d5ab4](https://github.com/HsuTing/eslint-config-cat/commit/d9d5ab4))
 
 
 

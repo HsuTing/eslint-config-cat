@@ -1,6 +1,6 @@
 {
   "name": "eslint-config-cat",
-  "version": "1.0.1",
+  "version": "0.1.0",
   "description": "eslint config for cat",
   "main": "index.js",
   "repository": "https://github.com/HsuTing/eslint-config-cat.git",
