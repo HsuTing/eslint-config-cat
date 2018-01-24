@@ -4,7 +4,7 @@
 
 ### Features
 
-* **index.js:** require all of js(require-jsdoc) ([ce8f74c](https://github.com/HsuTing/eslint-config-cat/commit/ce8f74c))
+* **index.js:** require all of js(require-jsdoc) ([50b8820](https://github.com/HsuTing/eslint-config-cat/commit/50b8820))
 
 
 
