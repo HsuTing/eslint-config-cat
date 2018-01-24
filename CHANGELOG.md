@@ -1,3 +1,13 @@
+<a name="0.1.1"></a>
+## [0.1.1](https://github.com/HsuTing/eslint-config-cat/compare/v0.1.0...v0.1.1) (2018-01-24)
+
+
+### Features
+
+* **index.js:** new rules ([977b14f](https://github.com/HsuTing/eslint-config-cat/commit/977b14f))
+
+
+
 <a name="0.1.0"></a>
 # [0.1.0](https://github.com/HsuTing/eslint-config-cat/compare/d9d5ab4...v0.1.0) (2018-01-15)
 
