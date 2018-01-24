@@ -15,6 +15,15 @@ module.exports = {
     'comma-dangle': ['error', 'never'],
     'arrow-parens': ['error', 'as-needed'],
     curly: ['error', 'multi-or-nest'],
-    'no-invalid-this': 'off'
+    'no-invalid-this': 'off',
+    'require-jsdoc': ['error', {
+      'require': {
+        'FunctionDeclaration': true,
+        'MethodDefinition': true,
+        'ClassDeclaration': true,
+        'ArrowFunctionExpression': true,
+        'FunctionExpression': true
+      }
+    }]
   }
 };
