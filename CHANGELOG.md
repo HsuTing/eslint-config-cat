@@ -1,3 +1,17 @@
+# Change Log
+
+All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
+
+<a name="0.2.0"></a>
+# [0.2.0](http://github.com/HsuTing/eslint-config-cat/compare/v0.1.2...v0.2.0) (2018-02-07)
+
+
+### Features
+
+* **index:** add default plugin to eslint-config-cat ([74db662](http://github.com/HsuTing/eslint-config-cat/commit/74db662)), closes [#2](http://github.com/HsuTing/eslint-config-cat/issues/2)
+
+
+
 <a name="0.1.2"></a>
 ## [0.1.2](https://github.com/HsuTing/eslint-config-cat/compare/v0.1.1...v0.1.2) (2018-01-24)
 
@@ -25,6 +39,3 @@
 ### Features
 
 * **index.js:** set `no-invalid-this` to `off` ([d9d5ab4](https://github.com/HsuTing/eslint-config-cat/commit/d9d5ab4))
-
-
-
