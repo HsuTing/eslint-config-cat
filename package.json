@@ -20,10 +20,7 @@
     "lint"
   ],
   "homepage": "https://github.com/HsuTing/eslint-config-cat/",
-  "repository": {
-    "type": "git",
-    "url": "get+https://github.com/HsuTing/eslint-config-cat.git"
-  },
+  "repository": "https://github.com/HsuTing/eslint-config-cat.git",
   "bugs": {
     "url": "https://github.com/HsuTing/eslint-config-cat/issues/"
   },
