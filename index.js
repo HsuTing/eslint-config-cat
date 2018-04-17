@@ -8,8 +8,8 @@ const {alias} = require(
 
 module.exports = {
   extends: [
-    'plugin:flowtype/recommended',
     'eslint:recommended',
+    'fbjs/strict',
     'google'
   ],
   parser: 'babel-eslint',
@@ -30,6 +30,7 @@ module.exports = {
     }
   },
   rules: {
+    indent: ['error', 2],
     'max-len': 0,
     'quote-props': ['error', 'as-needed'],
     'object-curly-spacing': [1, 'never'],
