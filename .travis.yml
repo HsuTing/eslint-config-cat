@@ -1,9 +1,10 @@
 language: node_js
 node_js:
   - "node"
+yarn: true
+cache: yarn
 script:
   - yarn lint
-yarn: true
 deploy:
   provider: npm
   email: "hsuting0106@gmail.com"
