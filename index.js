@@ -15,7 +15,8 @@ module.exports = {
   parser: 'babel-eslint',
   env: {
     jest: true,
-    node: true
+    node: true,
+    browser: true
   },
   plugins: [
     'import',
