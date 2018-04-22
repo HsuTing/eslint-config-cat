@@ -3,4 +3,5 @@ yarn.lock
 .babelrc.js
 .eslint*
 .travis.yml
-.github
+flow-typed
+src

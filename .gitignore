@@ -3,5 +3,6 @@ node_modules
 *.swp
 *.log
 .eslintcache
+flow-typed
 coverage
 lib
