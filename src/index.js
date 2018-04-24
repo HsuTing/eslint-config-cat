@@ -1,3 +1,5 @@
+// @flow
+
 import path from 'path';
 
 import chalk from 'chalk';
@@ -8,7 +10,7 @@ type babelConfig = {
 
 const {
   alias = {},
-}: babelConfig = (():babelConfig => {
+}: babelConfig = ((): babelConfig => {
   try {
     const babelPath: string = path.resolve(process.cwd(), './.babelrc');
 
@@ -26,6 +28,7 @@ const {
 export default {
   extends: [
     'eslint:recommended',
+    'plugin:flowtype/recommended',
     'fbjs/strict',
     'google',
   ],
