@@ -51,5 +51,14 @@ export default {
     indent: ['error', 2],
     'quote-props': ['error', 'as-needed'],
     strict: ['error', 'never'],
+    'require-jsdoc': ['error', {
+      require: {
+        FunctionDeclaration: true,
+        MethodDefinition: true,
+        ClassDeclaration: true,
+        ArrowFunctionExpression: true,
+        FunctionExpression: true,
+      },
+    }],
   },
 };

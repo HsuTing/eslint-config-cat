@@ -1,6 +1,8 @@
-!.eslintrc.js
-!.babelrc.js
+node_modules
 coverage
 lib
-node_modules
+!.eslintrc.js
+!.babelrc.js
+
 flow-typed
+**/__tests__/**

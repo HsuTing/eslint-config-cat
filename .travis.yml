@@ -4,9 +4,10 @@ node_js:
 yarn: true
 cache: yarn
 script:
+  - yarn lint
   - yarn flow
   - yarn build
-  - yarn lint
+  - yarn test
 before_deploy:
   - yarn prod
 deploy:

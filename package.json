@@ -1,11 +1,13 @@
 {
   "scripts": {
     "flow": "flow",
-    "babel:build": "babel src --out-dir lib",
+    "test": "jest --silent",
+    "test:watch": "yarn test --watchAll",
+    "babel:build": "babel src --out-dir lib --ignore **/__tests__/**",
     "babel": "rm -rf ./lib && yarn babel:build",
     "babel:watch": "rm -rf ./lib && yarn babel:build -w",
-    "lint": "esw ./ --cache --ext .js",
-    "lint:watch": "yarn lint -w",
+    "lint": "yarn babel && esw ./ --cache --ext .js",
+    "lint:watch": "yarn babel && yarn lint -w",
     "build": "yarn flow-typed install && yarn babel",
     "prod": "cross-env NODE_ENV=production && yarn build",
     "watch": "concurrently -c green \"yarn lint:watch\" \"yarn babel:watch\""
@@ -25,8 +27,9 @@
     "cat"
   ],
   "pre-commit": [
-    "lint",
-    "flow"
+    "flow",
+    "babel",
+    "lint"
   ],
   "homepage": "https://github.com/HsuTing/eslint-config-cat/",
   "repository": "https://github.com/HsuTing/eslint-config-cat.git",
@@ -49,9 +52,11 @@
   },
   "devDependencies": {
     "@babel/cli": "^7.0.0-beta.44",
-    "@babel/core": "^7.0.0-beta.44",
+    "@babel/core": "^7.0.0-beta.46",
     "@babel/preset-env": "^7.0.0-beta.44",
     "@babel/preset-flow": "^7.0.0-beta.44",
+    "babel-core": "^7.0.0-0",
+    "babel-jest": "^22.4.3",
     "babel-plugin-module-resolver": "^3.1.1",
     "concurrently": "^3.5.1",
     "cross-env": "^5.1.4",
@@ -59,7 +64,9 @@
     "eslint-watch": "^3.1.4",
     "flow-bin": "^0.70.0",
     "flow-typed": "^2.4.0",
-    "pre-commit": "^1.2.2"
+    "jest": "^22.4.3",
+    "pre-commit": "^1.2.2",
+    "regenerator-runtime": "^0.11.1"
   },
   "license": "MIT"
 }

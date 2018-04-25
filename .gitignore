@@ -1,8 +1,9 @@
-node_modules
-.DS_Store
 *.swp
 *.log
+.DS_Store
 .eslintcache
-flow-typed
+node_modules
 coverage
 lib
+
+flow-typed

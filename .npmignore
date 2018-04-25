@@ -1,7 +1,11 @@
-yarn.lock
 .github
 .babelrc.js
 .eslint*
 .travis.yml
-flow-typed
+.flowconfig
+yarn.lock
+coverage
 src
+jest.config.js
+
+flow-typed
