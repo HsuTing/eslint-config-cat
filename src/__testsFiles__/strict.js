@@ -1,0 +1,2 @@
+// $expectError strict
+'use strict';

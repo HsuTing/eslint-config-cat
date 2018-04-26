@@ -4,5 +4,5 @@ lib
 !.eslintrc.js
 !.babelrc.js
 
-flow-typed
-**/__tests__/**
+flow-typed/npm
+**/__testsFiles__/**

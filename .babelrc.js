@@ -1,4 +1,13 @@
+const ENV = process.env.NODE_ENV;
 const alias = {};
+const ignore = [];
+
+if (ENV !== 'test') {
+  ignore.push(
+    '**/__tests__/**',
+    '**/__testsFiles__/**',
+  );
+}
 
 module.exports = alias;
 module.exports = {
@@ -12,5 +21,11 @@ module.exports = {
       cwd: __dirname,
       alias,
     }],
+    ['transform-imports', {
+      fbjs: {
+        transform: 'fbjs/lib/${member}',
+      },
+    }],
   ],
+  ignore,
 };

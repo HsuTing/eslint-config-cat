@@ -4,13 +4,9 @@ import path from 'path';
 
 import chalk from 'chalk';
 
-type babelConfig = {
-  alias?: {}
-};
+type babelConfig = { alias?: {} };
 
-const {
-  alias = {},
-}: babelConfig = ((): babelConfig => {
+const { alias = {} }: babelConfig = ((): babelConfig => {
   try {
     const babelPath: string = path.resolve(process.cwd(), './.babelrc');
 
@@ -40,6 +36,7 @@ export default {
   },
   plugins: [
     'import',
+    'jsdoc',
     'flowtype',
   ],
   settings: {
@@ -48,9 +45,36 @@ export default {
     },
   },
   rules: {
+    'arrow-parens': ['error', 'as-needed'],
+
     indent: ['error', 2],
+
+    'object-curly-newline': ['error', {
+      ObjectExpression: {
+        multiline: true,
+        minProperties: 4,
+        consistent: true,
+      },
+      ObjectPattern: {
+        multiline: true,
+        minProperties: 4,
+        consistent: true,
+      },
+      ImportDeclaration: {
+        multiline: true,
+        minProperties: 4,
+        consistent: true,
+      },
+      ExportDeclaration: {
+        multiline: true,
+        minProperties: 4,
+        consistent: true,
+      },
+    }],
+    'object-curly-spacing': ['error', 'always'],
+
     'quote-props': ['error', 'as-needed'],
-    strict: ['error', 'never'],
+
     'require-jsdoc': ['error', {
       require: {
         FunctionDeclaration: true,
@@ -60,5 +84,24 @@ export default {
         FunctionExpression: true,
       },
     }],
+
+    'valid-jsdoc': 'error',
+
+    strict: ['error', 'never'],
+
+    // eslint-plugin-jsdoc
+    'jsdoc/check-param-names': 1,
+    'jsdoc/check-tag-names': 1,
+    'jsdoc/check-types': 1,
+    'jsdoc/newline-after-description': 1,
+    'jsdoc/require-description-complete-sentence': 0,
+    'jsdoc/require-example': 1,
+    'jsdoc/require-hyphen-before-param-description': 1,
+    'jsdoc/require-param': 1,
+    'jsdoc/require-param-description': 1,
+    'jsdoc/require-param-name': 1,
+    'jsdoc/require-param-type': 1,
+    'jsdoc/require-returns-description': 1,
+    'jsdoc/require-returns-type': 1,
   },
 };
