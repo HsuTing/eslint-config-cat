@@ -28,7 +28,6 @@
   ],
   "pre-commit": [
     "flow",
-    "babel",
     "lint"
   ],
   "homepage": "https://github.com/HsuTing/eslint-config-cat/",
