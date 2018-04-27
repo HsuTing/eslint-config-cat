@@ -1,12 +1,13 @@
 language: node_js
 node_js:
   - "node"
+  - "9"
 yarn: true
 cache: yarn
 script:
+  - yarn build
   - yarn lint
   - yarn flow
-  - yarn build
   - yarn test
 before_deploy:
   - yarn prod
