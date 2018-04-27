@@ -17,27 +17,29 @@ const cli = new CLIEngine({
 });
 const { results: eslintResult } = cli.executeOnFiles(['.']);
 const files = d3.hierarchy(dirTree(root), null, 2).leaves();
-const testData = files.filter(({ data }) => {
-  const { path, extension } = data;
+const testData = files
+  .filter(({ data }) => {
+    const { path, extension } = data;
 
-  return /__testsFiles__/.test(path) && extension === '.js';
-}).map(({ data }) => {
-  const { path, name } = data;
-  const { messages } = eslintResult.find(({ filePath }) => filePath === path);
-  const expectErrors = fs.readFileSync(path, 'utf-8')
-    .split(/\n/g)
-    .filter(text => /^\/\/ \$expectError /.test(text))
-    .map(text => text.replace(/^\/\/ \$expectError /, ''));
-  const testTasks = messages.map((message, index) => ({
-    eslintInfo: message,
-    expectError: expectErrors[index] || null,
-  }));
+    return /__testsFiles__/.test(path) && extension === '.js';
+  })
+  .map(({ data }) => {
+    const { path, name } = data;
+    const { messages } = eslintResult.find(({ filePath }) => filePath === path);
+    const expectErrors = fs.readFileSync(path, 'utf-8')
+      .split(/\n/g)
+      .filter(text => /^\/\/ \$expectError /.test(text))
+      .map(text => text.replace(/^\/\/ \$expectError /, ''));
+    const testTasks = messages.map((message, index) => ({
+      eslintInfo: message,
+      expectError: expectErrors[index] || null,
+    }));
 
-  return {
-    testName: hyphenate(name.replace(/.js/, '')),
-    testTasks,
-  };
-});
+    return {
+      testName: hyphenate(name.replace(/.js/, '')),
+      testTasks,
+    };
+  });
 
 describe('eslint', () => {
   testData.forEach(({ testName, testTasks }, index) => {

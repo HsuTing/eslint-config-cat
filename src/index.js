@@ -35,9 +35,9 @@ export default {
     browser: true,
   },
   plugins: [
-    'import',
     'jsdoc',
     'flowtype',
+    'import',
   ],
   settings: {
     'import/resolver': {
@@ -46,6 +46,7 @@ export default {
   },
   rules: {
     'arrow-parens': ['error', 'as-needed'],
+    'arrow-body-style': ['error', 'as-needed'],
 
     indent: ['error', 2],
 

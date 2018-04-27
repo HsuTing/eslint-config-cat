@@ -5,18 +5,14 @@
  * @param {any} argu - example argu
  * @returns {10} - example returns
 */
-const correctFunction = argu => {
-  return 10;
-};
+const correctFunction = argu => 10;
 
 // $expectError jsdoc/require-example
 /**
  * @param {any} argu - example argu
  * @returns {10} - example returns
 */
-const noExample = argu => {
-  return 10;
-};
+const noExample = argu => 10;
 
 // $expectError jsdoc/require-param
 // $expectError valid-jsdoc
@@ -26,9 +22,7 @@ const noExample = argu => {
  *
  * @returns {10} - example returns
 */
-const noParams = argu => {
-  return 10;
-};
+const noParams = argu => 10;
 
 // $expectError valid-jsdoc
 /**
@@ -37,6 +31,4 @@ const noParams = argu => {
  *
  * @param {any} argu - example argu
 */
-const noReturns = argu => {
-  return 10;
-};
+const noReturns = argu => 10;
