@@ -4,8 +4,9 @@ node_js:
   - "9"
 yarn: true
 cache: yarn
-script:
+before_script:
   - yarn build
+script:
   - yarn lint
   - yarn flow
   - yarn test
