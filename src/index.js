@@ -24,6 +24,8 @@ const { alias = {} }: babelConfig = ((): babelConfig => {
 export default {
   extends: [
     'eslint:recommended',
+    'plugin:import/errors',
+    'plugin:import/warnings',
     'plugin:flowtype/recommended',
     'fbjs/strict',
     'google',
@@ -36,11 +38,10 @@ export default {
   },
   plugins: [
     'jsdoc',
-    'flowtype',
-    'import',
   ],
   settings: {
     'import/resolver': {
+      node: {},
       'babel-module': alias,
     },
   },
@@ -49,6 +50,10 @@ export default {
     'arrow-body-style': ['error', 'as-needed'],
 
     indent: ['error', 2],
+
+    'max-len': ['error', {
+      code: 80,
+    }],
 
     'object-curly-newline': ['error', {
       ObjectExpression: {
