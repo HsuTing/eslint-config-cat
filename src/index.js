@@ -52,9 +52,7 @@ export default {
 
     indent: ['error', 2],
 
-    'max-len': ['error', {
-      code: 80,
-    }],
+    'no-shadow': 'error',
 
     'object-curly-newline': ['error', {
       ObjectExpression: {

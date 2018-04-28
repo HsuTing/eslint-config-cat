@@ -42,11 +42,3 @@ const {keyAAAA } = moduleA;
 
 // $expectError object-curly-spacing
 const { keyAAAAA} = moduleA;
-
-const {
-  testLongLongLongLongLongLongKeyA,
-  testLongLongLongLongLongLongKeyB,
-} = moduleA;
-
-// $expectError max-len
-const { testLongLongLongLongLongLongKeyAA, testLongLongLongLongLongLongKeyBB } = moduleA;

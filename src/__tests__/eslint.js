@@ -30,18 +30,20 @@ const files = d3
 
 const testData = files
   .filter(({ data }) => {
-    const { path, extension } = data;
+    const { path: filePath, extension } = data;
 
-    return /__testsFiles__/.test(path) && extension === '.js';
+    return /__testsFiles__/.test(filePath) && extension === '.js';
   })
   .map(({ data }) => {
-    const { path, name } = data;
+    const { path: filePath, name } = data;
 
-    const { messages } = eslintResult
-      .find(({ filePath }) => filePath === path) || { messages: [] };
+    const { messages = [] } = eslintResult
+      .find(
+        ({ filePath: eslintFilePath }) => filePath === eslintFilePath
+      ) || {};
 
     const expectErrors = fs
-      .readFileSync(path, 'utf-8')
+      .readFileSync(filePath, 'utf-8')
       .split(/\n/g)
       .filter(text => /^\/\/ \$expectError /.test(text))
       .map(text => text.replace(/^\/\/ \$expectError /, ''));
