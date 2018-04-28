@@ -6,7 +6,7 @@ import chalk from 'chalk';
 
 type babelConfig = { alias?: {} };
 
-const { alias = {} }: babelConfig = ((): babelConfig => {
+const { alias = {} } = ((): babelConfig => {
   try {
     const babelPath: string = path.resolve(process.cwd(), './.babelrc');
 
@@ -38,6 +38,7 @@ export default {
   },
   plugins: [
     'jsdoc',
+    'flowtype',
   ],
   settings: {
     'import/resolver': {
