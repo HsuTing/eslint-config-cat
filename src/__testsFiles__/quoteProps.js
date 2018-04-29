@@ -1,3 +1,5 @@
+// @flow
+
 const correct = {
   key: 'value',
   'need-quoted': 'value',

@@ -1,7 +1,4 @@
 [ignore]
-.*/node_modules/.*
-.*/lib/.*
-.*/coverage/.*
 
 [include]
 
@@ -11,7 +8,6 @@
 [lints]
 
 [options]
-all=true
 module.ignore_non_literal_requires=true
 
 [strict]

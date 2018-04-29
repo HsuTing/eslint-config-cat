@@ -1,3 +1,5 @@
+// @flow
+
 const correct = '1';
 
 // $expectError indent

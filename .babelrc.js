@@ -1,3 +1,5 @@
+// @flow
+
 const ENV = process.env.NODE_ENV;
 const alias = {};
 const ignore = [];

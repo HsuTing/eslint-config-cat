@@ -1,3 +1,5 @@
+// @flow
+
 import { moduleA, moduleB, moduleC } from 'eslint';
 import {
   moduleAA,

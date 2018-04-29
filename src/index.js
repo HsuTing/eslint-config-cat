@@ -4,9 +4,9 @@ import path from 'path';
 
 import chalk from 'chalk';
 
-type babelConfig = { alias?: {} };
+type babelConfigType = { alias?: {} };
 
-const { alias = {} } = ((): babelConfig => {
+const { alias = {} } = ((): babelConfigType => {
   try {
     const babelPath: string = path.resolve(process.cwd(), './.babelrc');
 
@@ -57,6 +57,7 @@ export default {
     indent: ['error', 2],
 
     'no-shadow': 'error',
+    'no-extra-parens': ['error', 'functions'],
 
     'object-curly-newline': ['error', {
       ObjectExpression: {
@@ -110,5 +111,21 @@ export default {
     'jsdoc/require-param-type': 1,
     'jsdoc/require-returns-description': 1,
     'jsdoc/require-returns-type': 1,
+
+    // eslint-plugin-flowType
+    'flowtype/no-dupe-keys': 2,
+    'flowtype/no-mutable-array': 2,
+    'flowtype/no-primitive-constructor-types': 2,
+    'flowtype/no-unused-expressions': 2,
+    'flowtype/no-weak-types': 2,
+    'flowtype/require-valid-file-annotation': [2, 'always'],
+    'flowtype/require-variable-type': [2, {
+      excludeVariableTypes: {
+        var: false,
+        let: false,
+        const: true,
+      },
+    }],
+    'flowtype/type-id-match': [2, '^([a-z][A-Za-z0-9]*)+Type$'],
   },
 };
