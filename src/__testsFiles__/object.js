@@ -1,21 +1,20 @@
-/* eslint-disable no-undef, no-unused-vars, no-redeclare */
 import { moduleA, moduleB, moduleC } from 'eslint';
 import {
   moduleAA,
   moduleBB,
   moduleCC,
   moduleDD,
-} from 'eslint';
+} from '@babel/core';
 
 // $expectError object-curly-newline
 // $expectError object-curly-newline
-import { moduleAAA, moduleBBB, moduleCCC, moduleDDD } from 'eslint';
+import { moduleAAA, moduleBBB, moduleCCC, moduleDDD } from '@babel/cli';
 
 // $expectError object-curly-spacing
-import {moduleAAAA } from 'eslint';
+import {moduleAAAA } from '@babel/preset-env';
 
 // $expectError object-curly-spacing
-import { moduleAAAAA} from 'eslint';
+import { moduleAAAAA} from '@babel/preset-flow';
 
 const testA = { keyA: 'a', keyB: 'b', keyC: 'c' };
 const testB = {

@@ -1,16 +1,18 @@
+// @flow
+
 /**
  * @example
  * correctFunction('test');
  *
  * @param {any} argu - example argu
- * @returns {10} - example returns
+ * @return {10} - example return
 */
 const correctFunction = argu => 10;
 
 // $expectError jsdoc/require-example
 /**
  * @param {any} argu - example argu
- * @returns {10} - example returns
+ * @return {10} - example return
 */
 const noExample = argu => 10;
 
@@ -20,7 +22,7 @@ const noExample = argu => 10;
  * @example
  * correctFunction('test');
  *
- * @returns {10} - example returns
+ * @return {10} - example return
 */
 const noParams = argu => 10;
 
@@ -32,3 +34,21 @@ const noParams = argu => 10;
  * @param {any} argu - example argu
 */
 const noReturns = argu => 10;
+
+// $expectError require-jsdoc
+const functionDeclarationRequiredJsDoc = () => 10;
+
+// $expectError require-jsdoc
+class classDeclarationRequiredJsDoc {
+  // $expectError require-jsdoc
+  methodDefinitionRequiredJsdoc() {
+    return 10;
+  }
+}
+
+const testObj = {
+  // $expectError require-jsdoc
+  methodDefinitionRequiredJsdoc() {
+    return 10;
+  },
+};

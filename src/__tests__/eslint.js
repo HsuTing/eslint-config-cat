@@ -6,16 +6,15 @@ import dirTree from 'directory-tree';
 import * as d3 from 'd3-hierarchy';
 import { hyphenate } from 'fbjs';
 
-import config from './../';
-
 const root = path
   .resolve(process.cwd(), './src');
 
 const cli = new CLIEngine({
-  ...config,
-  useEslintrc: false,
   cwd: root,
   ignore: false,
+  rules: {
+    'no-unused-vars': ['off'],
+  },
 });
 
 const { results } = cli
@@ -45,8 +44,8 @@ const testData = files
     const expectErrors = fs
       .readFileSync(filePath, 'utf-8')
       .split(/\n/g)
-      .filter(text => /^\/\/ \$expectError /.test(text))
-      .map(text => text.replace(/^\/\/ \$expectError /, ''));
+      .filter(text => /^[ ]*\/\/ \$expectError /.test(text))
+      .map(text => text.replace(/^[ ]*\/\/ \$expectError /, ''));
 
     const testTasks = messages
       .map((message, index) => ({

@@ -3,7 +3,7 @@
  * correct();
  *
  * @param {any} argu - any
- * @returns {'value'} - value
+ * @return {'value'} - value
 */
 const correct = argu => 'value';
 
@@ -12,7 +12,7 @@ const correct = argu => 'value';
  * correctNotDirectReturn();
  *
  * @param {any} argu - any
- * @returns {'test'} - value
+ * @return {'test'} - value
 */
 const correctNotDirectReturn = argu => {
   const a = 'test';
@@ -26,7 +26,7 @@ const correctNotDirectReturn = argu => {
  * shouldDirectReturn();
  *
  * @param {any} argu - any
- * @returns {'value'} - value
+ * @return {'value'} - value
 */
 const shouldDirectReturn = argu => {
   return 'value';
@@ -38,6 +38,6 @@ const shouldDirectReturn = argu => {
  * notParens();
  *
  * @param {any} argu - any
- * @returns {'value'} - value
+ * @return {'value'} - value
 */
 const notParens = (argu) => 'value';

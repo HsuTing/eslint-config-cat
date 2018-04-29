@@ -38,12 +38,16 @@ export default {
   },
   plugins: [
     'jsdoc',
-    'flowtype',
   ],
   settings: {
     'import/resolver': {
       node: {},
       'babel-module': alias,
+    },
+    jsdoc: {
+      tagNamePreference: {
+        returns: 'return',
+      },
     },
   },
   rules: {
@@ -89,8 +93,6 @@ export default {
         FunctionExpression: true,
       },
     }],
-
-    'valid-jsdoc': 'error',
 
     strict: ['error', 'never'],
 

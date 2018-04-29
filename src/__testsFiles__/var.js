@@ -1,12 +1,10 @@
 const a = 'value';
 
-// $expectError no-shadow
 /**
  * @example
  * test()
- *
- * @returns {nulli} - no return
 */
 const test = () => {
+  // $expectError no-shadow
   const a = 'test';
-}
+};

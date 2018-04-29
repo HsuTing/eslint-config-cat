@@ -1,9 +1,9 @@
-const correct  = {
+const correct = {
   key: 'value',
   'need-quoted': 'value',
 };
 
-// $expectError quote-props
 const unnecessarilyQuotedKey = {
+  // $expectError quote-props
   'key': 'value',
 };
