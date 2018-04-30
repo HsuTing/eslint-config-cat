@@ -8,6 +8,11 @@ import dirTree from 'directory-tree';
 import * as d3 from 'd3-hierarchy';
 import { hyphenate } from 'fbjs';
 
+type testTaskType = {
+  eslintInfo: string,
+  expectError: ?string,
+};
+
 const root = path
   .resolve(process.cwd(), './src');
 
@@ -23,34 +28,38 @@ const { results } = cli
   .executeOnFiles(['.']);
 
 const eslintResult = results
-  .filter(({ messages }) => messages.length !== 0);
+  .filter(({ messages }): boolean => messages.length !== 0);
 
 const files = d3
   .hierarchy(dirTree(root), null, 2)
   .leaves();
 
 const testData = files
-  .filter(({ data }) => {
+  .filter(({ data }): boolean => {
     const { path: filePath, extension } = data;
 
     return /__testsFiles__/.test(filePath) && extension === '.js';
   })
-  .map(({ data }) => {
+  .map(({ data }): {
+    testName: string,
+    testTasks: $ReadOnlyArray<testTaskType>,
+    checkErrorAmount: boolean
+  } => {
     const { path: filePath, name } = data;
 
     const { messages = [] } = eslintResult
       .find(
-        ({ filePath: eslintFilePath }) => filePath === eslintFilePath
+        ({ filePath: eslintFilePath }): boolean => filePath === eslintFilePath
       ) || {};
 
     const expectErrors = fs
       .readFileSync(filePath, 'utf-8')
       .split(/\n/g)
-      .filter(text => /^[ ]*\/\/ \$expectError /.test(text))
-      .map(text => text.replace(/^[ ]*\/\/ \$expectError /, ''));
+      .filter((text): boolean => /^[ ]*\/\/ \$expectError /.test(text))
+      .map((text): string => text.replace(/^[ ]*\/\/ \$expectError /, ''));
 
     const testTasks = messages
-      .map((message, index) => ({
+      .map((message, index): testTaskType => ({
         eslintInfo: message,
         expectError: expectErrors[index] || null,
       }));

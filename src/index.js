@@ -118,6 +118,7 @@ export default {
     'flowtype/no-primitive-constructor-types': 2,
     'flowtype/no-unused-expressions': 2,
     'flowtype/no-weak-types': 2,
+    'flowtype/require-return-type': [2, 'always'],
     'flowtype/require-valid-file-annotation': [2, 'always'],
     'flowtype/require-variable-type': [2, {
       excludeVariableTypes: {
