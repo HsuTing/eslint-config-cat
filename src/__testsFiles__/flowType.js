@@ -42,3 +42,13 @@ type typeIdMatch = string;
 
 // $expectError flowtype/require-variable-type
 let requireVariableType = 'test';
+
+// $expectError flowtype/require-return-type
+/**
+ * @example
+ * requireReturnType('test');
+ *
+ * @param {any} argu - any
+ * @return {any} - any
+*/
+const requireReturnType = argu => argu;

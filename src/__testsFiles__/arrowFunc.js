@@ -4,19 +4,19 @@
  * @example
  * correct();
  *
- * @param {any} argu - any
+ * @param {string} argu - any
  * @return {'value'} - value
 */
-const correct = argu => 'value';
+const correct = (argu): string => 'value';
 
 /**
  * @example
  * correctNotDirectReturn();
  *
- * @param {any} argu - any
+ * @param {string} argu - any
  * @return {'test'} - value
 */
-const correctNotDirectReturn = argu => {
+const correctNotDirectReturn = (argu): string => {
   const a = 'test';
 
   return a;
@@ -27,19 +27,9 @@ const correctNotDirectReturn = argu => {
  * @example
  * shouldDirectReturn();
  *
- * @param {any} argu - any
+ * @param {string} argu - any
  * @return {'value'} - value
 */
-const shouldDirectReturn = argu => {
+const shouldDirectReturn = (argu): string => {
   return 'value';
 };
-
-// $expectError arrow-parens
-/**
- * @example
- * notParens();
- *
- * @param {any} argu - any
- * @return {'value'} - value
-*/
-const notParens = (argu) => 'value';

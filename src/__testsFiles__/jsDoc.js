@@ -4,17 +4,17 @@
  * @example
  * correctFunction('test');
  *
- * @param {any} argu - example argu
+ * @param {number} argu - example argu
  * @return {10} - example return
 */
-const correctFunction = argu => 10;
+const correctFunction = (argu): number => 10;
 
 // $expectError jsdoc/require-example
 /**
- * @param {any} argu - example argu
+ * @param {number} argu - example argu
  * @return {10} - example return
 */
-const noExample = argu => 10;
+const noExample = (argu): number => 10;
 
 // $expectError jsdoc/require-param
 // $expectError valid-jsdoc
@@ -24,31 +24,31 @@ const noExample = argu => 10;
  *
  * @return {10} - example return
 */
-const noParams = argu => 10;
+const noParams = (argu): number => 10;
 
 // $expectError valid-jsdoc
 /**
  * @example
  * correctFunction('test');
  *
- * @param {any} argu - example argu
+ * @param {number} argu - example argu
 */
-const noReturns = argu => 10;
+const noReturns = (argu): number => 10;
 
 // $expectError require-jsdoc
-const functionDeclarationRequiredJsDoc = () => 10;
+const functionDeclarationRequiredJsDoc = (): number => 10;
 
 // $expectError require-jsdoc
 class classDeclarationRequiredJsDoc {
   // $expectError require-jsdoc
-  methodDefinitionRequiredJsdoc() {
+  methodDefinitionRequiredJsdoc(): number {
     return 10;
   }
 }
 
 const testObj = {
   // $expectError require-jsdoc
-  methodDefinitionRequiredJsdoc() {
+  methodDefinitionRequiredJsdoc(): number {
     return 10;
   },
 };
