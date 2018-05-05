@@ -43,7 +43,7 @@ const testData = files
   .map(({ data }): {
     testName: string,
     testTasks: $ReadOnlyArray<testTaskType>,
-    checkErrorAmount: boolean
+    checkErrorAmount: boolean,
   } => {
     const { path: filePath, name } = data;
 
