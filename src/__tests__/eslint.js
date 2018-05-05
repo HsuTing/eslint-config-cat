@@ -31,7 +31,7 @@ const eslintResult = results
   .filter(({ messages }): boolean => messages.length !== 0);
 
 const files = d3
-  .hierarchy(dirTree(root), null, 2)
+  .hierarchy(dirTree(root))
   .leaves();
 
 const testData = files
