@@ -33,3 +33,12 @@ const correctNotDirectReturn = (argu): string => {
 const shouldDirectReturn = (argu): string => {
   return 'value';
 };
+
+// $expectError no-confusing-arrow
+/**
+ * @example
+ * noConfusingArrow();
+ *
+ * @return {'true' | 'false'} - value
+*/
+const noConfusingArrow = (): string => true ? 'true' : 'false';

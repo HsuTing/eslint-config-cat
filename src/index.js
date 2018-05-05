@@ -58,6 +58,7 @@ export default {
 
     'no-shadow': 'error',
     'no-extra-parens': ['error', 'functions'],
+    'no-confusing-arrow': 'error',
 
     'object-curly-newline': ['error', {
       ObjectExpression: {
