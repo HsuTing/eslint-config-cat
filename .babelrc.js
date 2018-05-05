@@ -18,6 +18,7 @@ module.exports = {
     '@babel/preset-flow',
   ],
   plugins: [
+    '@babel/plugin-proposal-optional-chaining',
     ['module-resolver', {
       root: ['./src'],
       cwd: __dirname,
