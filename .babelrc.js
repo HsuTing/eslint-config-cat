@@ -18,7 +18,6 @@ module.exports = {
     '@babel/preset-flow',
   ],
   plugins: [
-    '@babel/plugin-proposal-optional-chaining',
     ['module-resolver', {
       root: ['./src'],
       cwd: __dirname,
@@ -29,6 +28,8 @@ module.exports = {
         transform: 'fbjs/lib/${member}',
       },
     }],
+    '@babel/plugin-proposal-optional-chaining',
+    'add-module-exports',
   ],
   ignore,
 };
