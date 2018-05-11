@@ -37,7 +37,6 @@
   },
   "dependencies": {
     "babel-eslint": "^8.2.3",
-    "chalk": "^2.4.0",
     "eslint-config-fbjs": "^2.0.1",
     "eslint-config-google": "^0.9.1",
     "eslint-import-resolver-babel-module": "^4.0.0",
