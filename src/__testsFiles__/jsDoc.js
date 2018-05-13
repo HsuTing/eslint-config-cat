@@ -7,14 +7,14 @@
  * @param {number} argu - example argu
  * @return {10} - example return
 */
-const correctFunction = (argu): number => 10;
+const correctFunction = (argu: string): number => 10;
 
 // $expectError jsdoc/require-example
 /**
  * @param {number} argu - example argu
  * @return {10} - example return
 */
-const noExample = (argu): number => 10;
+const noExample = (argu: string): number => 10;
 
 // $expectError jsdoc/require-param
 // $expectError valid-jsdoc
@@ -24,7 +24,7 @@ const noExample = (argu): number => 10;
  *
  * @return {10} - example return
 */
-const noParams = (argu): number => 10;
+const noParams = (argu: string): number => 10;
 
 // $expectError valid-jsdoc
 /**
@@ -33,7 +33,7 @@ const noParams = (argu): number => 10;
  *
  * @param {number} argu - example argu
 */
-const noReturns = (argu): number => 10;
+const noReturns = (argu: string): number => 10;
 
 // $expectError require-jsdoc
 const functionDeclarationRequiredJsDoc = (): number => 10;

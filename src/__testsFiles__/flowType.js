@@ -51,4 +51,14 @@ let requireVariableType = 'test';
  * @param {any} argu - any
  * @return {any} - any
 */
-const requireReturnType = argu => argu;
+const requireReturnType = (argu: string) => argu;
+
+// $expectError flowtype/require-parameter-type
+/**
+ * @example
+ * requireReturnType('test');
+ *
+ * @param {any} argu - any
+ * @return {any} - any
+*/
+const requireParameterType = (argu): string => argu;
