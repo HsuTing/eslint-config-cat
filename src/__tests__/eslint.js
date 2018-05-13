@@ -8,9 +8,28 @@ import dirTree from 'directory-tree';
 import * as d3 from 'd3-hierarchy';
 import { hyphenate } from 'fbjs';
 
+type eslintInfoType = {
+  ruleId: string,
+  line: number,
+  message: string,
+};
+
 type testTaskType = {
-  eslintInfo: string,
+  eslintInfo: eslintInfoType,
   expectError: ?string,
+};
+
+type testDataType = {
+  testName: string,
+  testTasks: $ReadOnlyArray<testTaskType>,
+  checkErrorAmount: boolean,
+};
+
+type dirTreeType = {
+  data: {
+    path: string,
+    extension: string,
+  },
 };
 
 const root = path
@@ -28,38 +47,38 @@ const { results } = cli
   .executeOnFiles(['.']);
 
 const eslintResult = results
-  .filter(({ messages }): boolean => messages.length !== 0);
+  .filter(({ messages }: {
+    messages: $ReadOnlyArray<string>
+  }): boolean => messages.length !== 0);
 
 const files = d3
   .hierarchy(dirTree(root))
   .leaves();
 
 const testData = files
-  .filter(({ data }): boolean => {
+  .filter(({ data }: dirTreeType): boolean => {
     const { path: filePath, extension } = data;
 
     return /__testsFiles__/.test(filePath) && extension === '.js';
   })
-  .map(({ data }): {
-    testName: string,
-    testTasks: $ReadOnlyArray<testTaskType>,
-    checkErrorAmount: boolean,
-  } => {
+  .map(({ data }: dirTree): testDataType => {
     const { path: filePath, name } = data;
 
     const { messages = [] } = eslintResult
-      .find(
-        ({ filePath: eslintFilePath }): boolean => filePath === eslintFilePath
-      ) || {};
+      .find(({ filePath: eslintFilePath }: {
+        filePath: string,
+      }): boolean => filePath === eslintFilePath) || {};
 
     const expectErrors = fs
       .readFileSync(filePath, 'utf-8')
       .split(/\n/g)
-      .filter((text): boolean => /^[ ]*\/\/ \$expectError /.test(text))
-      .map((text): string => text.replace(/^[ ]*\/\/ \$expectError /, ''));
+      .filter((text: string): boolean => /^[ ]*\/\/ \$expectError /.test(text))
+      .map((text: string): string => (
+        text.replace(/^[ ]*\/\/ \$expectError /, '')
+      ));
 
     const testTasks = messages
-      .map((message, index): testTaskType => ({
+      .map((message: eslintInfoType, index: number): testTaskType => ({
         eslintInfo: message,
         expectError: expectErrors[index] || null,
       }));
@@ -77,19 +96,24 @@ describe('eslint', () => {
     expect(eslintResult.length).toBe(testData.length);
   });
 
-  testData.forEach(({ testName, testTasks, checkErrorAmount }, index) => {
-    describe(testName, () => {
-      testTasks.forEach(({ eslintInfo, expectError }) => {
-        const { ruleId, line, message } = eslintInfo;
+  testData
+    .forEach(({
+      testName,
+      testTasks,
+      checkErrorAmount,
+    }: testDataType, index: number) => {
+      describe(testName, () => {
+        testTasks.forEach(({ eslintInfo, expectError }: testTaskType) => {
+          const { ruleId, line, message } = eslintInfo;
 
-        it(`[line: ${line}, rule: ${ruleId}] ${message}`, () => {
-          expect(ruleId).toBe(expectError);
+          it(`[line: ${line}, rule: ${ruleId}] ${message}`, () => {
+            expect(ruleId).toBe(expectError);
+          });
+        });
+
+        it('check error amount', () => {
+          expect(checkErrorAmount).toBeTruthy();
         });
       });
-
-      it('check error amount', () => {
-        expect(checkErrorAmount).toBeTruthy();
-      });
     });
-  });
 });

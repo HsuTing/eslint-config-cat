@@ -1,14 +1,9 @@
 // @flow
 
-export default {
-  meta: {
+export default (context: {}): {
+  ReturnStatement: (node: {}) => void,
+} => ({
+  ReturnStatement: (node: {}) => {
+    console.log(node); // eslint-disable-line
   },
-
-  create: (context): {
-    ReturnStatement: func,
-  } => ({
-    ReturnStatement: node => {
-      console.log(node);
-    },
-  }),
-};
+});
